@@ -3,6 +3,7 @@ package com.ordersystem.controller;
 import com.alibaba.fastjson.JSON;
 import com.ordersystem.mapper.EmployeeMapper;
 import com.ordersystem.pojo.Employee;
+import com.ordersystem.pojo.Page;
 import com.ordersystem.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
@@ -56,7 +57,9 @@ public class EmployeeController {
 
         List<Employee> employeeList= employeeMapper.selectAllEmployees();
 
-        String jsonString = JSON.toJSONString(employeeList);
-        return Result.success(jsonString);
+        Page<Employee> p=new Page<>();
+        p.setRecords(employeeList);
+//        p.setTotal();
+        return Result.success(p);
     }
 }

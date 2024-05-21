@@ -9,4 +9,12 @@
             category(type,name,sort,create_time,update_time,create_user,update_user)
         values(#{type},#{name},#{sort},#{createTime},#{updateTime},#{createUser},#{updateUser})
     </insert>
+    <!--查询每页数据-->
+    <select id="selectCurrentData" resultType="com.ordersystem.pojo.Category">
+        select * from category order by sort asc ,create_time desc limit #{start},#{pageSize}
+    </select>
+    <!--查询总条数-->
+    <select id="selectTotal" resultType="java.lang.Long">
+        select count(*) from category
+    </select>
 </mapper>
