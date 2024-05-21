@@ -10,6 +10,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -69,9 +70,23 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee")
-    public Result addEmployee(@RequestBody Employee employee){
+    public Result addEmployee(@RequestBody Employee employee,HttpSession session){
+        //1.完善信息
 
-        //1.添加Employee
+        //创建时间更新时间
+        employee.setCreateTime(LocalDateTime.now());
+        employee.setUpdateTime(LocalDateTime.now());
+
+        //创建用户更新用户
+        Integer id=(Integer) session.getAttribute("id");
+        employee.setCreateUser(id);
+        employee.setUpdateUser(id);
+
+        //密码加密
+        String password=DigestUtils.md5DigestAsHex(employee.getPassword().getBytes());
+        employee.setPassword(password);
+
+        //2.添加Employee
         employeeMapper.add(employee);
 
         return Result.success();

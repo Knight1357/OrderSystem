@@ -53,5 +53,20 @@ public class CategoryController {
 
         return Result.success(p);
     }
+
+    @PutMapping("/category")
+    public Result updateCategory(@RequestBody Category category,HttpSession session){
+        //调用CategoryMapper方法完成数据库的修改
+        //修改之前，填充前端未提供的数据
+        //填充创建时间和更新时间
+        category.setUpdateTime(LocalDateTime.now());
+
+        //创建更新人
+        Integer id = (Integer) session.getAttribute("id");
+        category.setUpdateUser(id);
+
+        categoryMapper.update(category);
+        return Result.success();
+    }
     
 }

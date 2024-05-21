@@ -11,8 +11,11 @@ public interface CategoryMapper {
 
     //添加分类
     void add(Category category);
-
+    //查询总条数
     Long selectTotal();
-
+    //查询当前页数据
     List<Category> selectCurrentData(Integer start, Integer pageSize);
+
+    //修改分类
+    void update(Category category);
 }

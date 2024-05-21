@@ -17,4 +17,11 @@
     <select id="selectTotal" resultType="java.lang.Long">
         select count(*) from category
     </select>
+    <!--修改-->
+    <update id="update">
+        update category
+        set name=#{name},sort=#{sort},
+        update_time=#{updateTime},update_user=#{updateUser}
+        where id=#{id}
+    </update>
 </mapper>
