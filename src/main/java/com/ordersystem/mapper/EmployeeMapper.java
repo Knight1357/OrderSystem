@@ -13,7 +13,9 @@ public interface EmployeeMapper {
     Employee selectByUsernameAndPassword(String username, String password);
 
 
-    void selectTotal();
+    Long selectTotal();
 
-    void selectCurrentData(Integer start, Integer pageSize, String name);
+    List<Employee> selectCurrentData(Integer start, Integer pageSize, String name);
+
+    void add(Employee employee);
 }

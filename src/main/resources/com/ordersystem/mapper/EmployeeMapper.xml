@@ -8,8 +8,16 @@
         select * from employee where username=#{username} and password=#{password}
     </select>
     
-    <!--获取所有员工数据-->
-    <select id="selectAllEmployees" resultType="com.ordersystem.pojo.Employee">
-        select * from employee;
+    <!--获取员工total-->
+    <select id="selectTotal" resultType="java.lang.Long">
+        select count(*) from employee;
+    </select>
+    <!--获取员工当前页-->
+    <select id="selectCurrentData" resultType="com.ordersystem.pojo.Employee">
+        select * from employee
+            <if test="name!=null">
+                where name=#{name}
+            </if>
+        limit #{start},#{pageSize}
     </select>
 </mapper>

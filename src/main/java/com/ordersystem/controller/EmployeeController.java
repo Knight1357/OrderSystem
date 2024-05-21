@@ -58,11 +58,21 @@ public class EmployeeController {
         Page<Employee> p=new Page<>();
 
         //2.查询Employee表的total
-        employeeMapper.selectTotal();
-
+        Long total=employeeMapper.selectTotal();
+        p.setTotal(total);
         //3. 查询当前页数据
         Integer start=(page-1)*pageSize;
-        employeeMapper.selectCurrentData(start,pageSize,name);
+        List<Employee> es=employeeMapper.selectCurrentData(start,pageSize,name);
+        p.setRecords(es);
+
+        return Result.success(p);
+    }
+
+    @PostMapping("/employee")
+    public Result addEmployee(@RequestBody Employee employee){
+
+        //1.添加Employee
+        employeeMapper.add(employee);
 
         return Result.success();
     }
