@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="add order.sql">
+    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="delete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/CategoryMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/CategoryMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/CategoryMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +107,7 @@
       <workItem from="1716195384464" duration="96000" />
       <workItem from="1716253391879" duration="9521000" />
       <workItem from="1716271387338" duration="11139000" />
-      <workItem from="1716288345446" duration="5652000" />
+      <workItem from="1716288345446" duration="7838000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -246,7 +245,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716291527277</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update category">
+      <option name="closed" value="true" />
+      <created>1716294489674</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1716294489674</updated>
+    </task>
+    <task id="LOCAL-00019" summary="delete">
+      <option name="closed" value="true" />
+      <created>1716294506526</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1716294506526</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +274,8 @@
     <MESSAGE value="add updateEmployee" />
     <MESSAGE value="add README.md" />
     <MESSAGE value="add order.sql" />
-    <option name="LAST_COMMIT_MESSAGE" value="add order.sql" />
+    <MESSAGE value="update category" />
+    <MESSAGE value="delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete" />
   </component>
 </project>
