@@ -19,4 +19,6 @@ public interface EmployeeMapper {
     void add(Employee employee);
     //通过id查询员工
     Employee selectById(Integer id);
+    //更新员工
+    void updateEmployee(Employee employee);
 }

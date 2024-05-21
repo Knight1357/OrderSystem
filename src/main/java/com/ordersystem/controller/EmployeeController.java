@@ -108,5 +108,17 @@ public class EmployeeController {
         }
     }
 
+    //更新员工信息
+    @PutMapping("/employee")
+    public Result updateEmployee(@RequestBody Employee employee,HttpSession session){
+        //1. 补充信息
+        //补充更新时间
+
+        //2. 修改信息
+        employeeMapper.updateEmployee(employee);
+
+        return Result.success();
+    }
+
 
 }
