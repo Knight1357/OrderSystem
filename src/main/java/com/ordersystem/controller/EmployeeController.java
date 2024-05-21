@@ -1,5 +1,6 @@
 package com.ordersystem.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.ordersystem.mapper.EmployeeMapper;
 import com.ordersystem.pojo.Employee;
 import com.ordersystem.pojo.Result;
@@ -8,6 +9,7 @@ import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @RestController
 public class EmployeeController {
@@ -37,5 +39,24 @@ public class EmployeeController {
             return Result.success(loginEmployee);
         }
     }
-	
+
+    @PostMapping("/employee/logout")
+    public Result logout(HttpSession session){
+
+        System.out.println("==============logout=============");
+        //退出登录
+        //删除session中的id值
+        session.removeAttribute("id");
+        return Result.success();
+    }
+
+    @GetMapping("/employee/page")
+    public Result getEmployeesPage(Integer page,Integer pageSize,String name){
+
+
+        List<Employee> employeeList= employeeMapper.selectAllEmployees();
+
+        String jsonString = JSON.toJSONString(employeeList);
+        return Result.success(jsonString);
+    }
 }

@@ -4,6 +4,8 @@ package com.ordersystem.mapper;
 import com.ordersystem.pojo.Employee;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface EmployeeMapper {
 
@@ -11,5 +13,5 @@ public interface EmployeeMapper {
     Employee selectByUsernameAndPassword(String username, String password);
 
 
-
+    List<Employee> selectAllEmployees();
 }

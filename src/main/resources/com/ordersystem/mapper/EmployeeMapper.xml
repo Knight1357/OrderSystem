@@ -7,4 +7,9 @@
     <select id="selectByUsernameAndPassword" resultType="com.ordersystem.pojo.Employee">
         select * from employee where username=#{username} and password=#{password}
     </select>
+    
+    <!--获取所有员工数据-->
+    <select id="selectAllEmployees" resultType="com.ordersystem.pojo.Employee">
+        select * from employee;
+    </select>
 </mapper>
