@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 @RestController
 public class EmployeeController {
     @Autowired//告诉Spring，从IOC容器中，拿到EmployeeMapper类的对象，赋值给改成员变量
     private EmployeeMapper employeeMapper;
+
+    //需要什么在参数列表中声明
     @PostMapping("/employee/login")
-    public Result login(@RequestBody Employee employee){
+    public Result login(@RequestBody Employee employee, HttpSession session){
         //登录逻辑
         //0.先对用户密码进行加密，得到密文密码
         String password=DigestUtils.md5DigestAsHex(employee.getPassword().getBytes());
@@ -26,6 +30,7 @@ public class EmployeeController {
             return Result.error("用户名和密码错误");
         }else{
             //登录成功
+            session.setAttribute("id",loginEmployee.getId());
             return Result.success(loginEmployee);
         }
     }
