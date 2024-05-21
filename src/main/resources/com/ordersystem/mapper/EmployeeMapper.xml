@@ -29,5 +29,9 @@
                #{idNumber},#{status},#{createTime},#{updateTime},
                #{createUser},#{updateUser})
     </select>
+    <!--通过id查询员工-->
+    <select id="selectById" resultType="com.ordersystem.pojo.Employee">
+        select * from employee where id=#{id}
+    </select>
 
 </mapper>

@@ -41,7 +41,7 @@ public class EmployeeController {
             return Result.success(loginEmployee);
         }
     }
-
+    // 退出登录
     @PostMapping("/employee/logout")
     public Result logout(HttpSession session){
 
@@ -52,6 +52,7 @@ public class EmployeeController {
         return Result.success();
     }
 
+    //显示员工信息页
     @GetMapping("/employee/page")
     public Result selectByPage(Integer page,Integer pageSize,String name){
 
@@ -69,6 +70,7 @@ public class EmployeeController {
         return Result.success(p);
     }
 
+    //添加员工
     @PostMapping("/employee")
     public Result addEmployee(@RequestBody Employee employee,HttpSession session){
         //1.完善信息
@@ -93,4 +95,18 @@ public class EmployeeController {
 
         return Result.success();
     }
+
+    // 根据ID查询员工
+    @GetMapping("/employee/{id}")
+    public Result selectByEmployeeId(@PathVariable Integer id){
+
+        Employee employee=employeeMapper.selectById(id);
+        if(employee==null){
+            return Result.error("查询失败");
+        }else{
+            return Result.success(employee);
+        }
+    }
+
+
 }
