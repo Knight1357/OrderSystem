@@ -76,6 +76,8 @@ public class EmployeeController {
         //创建时间更新时间
         employee.setCreateTime(LocalDateTime.now());
         employee.setUpdateTime(LocalDateTime.now());
+        //状态
+        employee.setStatus(1);
 
         //创建用户更新用户
         Integer id=(Integer) session.getAttribute("id");
@@ -83,7 +85,7 @@ public class EmployeeController {
         employee.setUpdateUser(id);
 
         //密码加密
-        String password=DigestUtils.md5DigestAsHex(employee.getPassword().getBytes());
+        String password=DigestUtils.md5DigestAsHex("123456".getBytes());
         employee.setPassword(password);
 
         //2.添加Employee
