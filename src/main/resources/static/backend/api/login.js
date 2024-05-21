@@ -1,6 +1,7 @@
 function loginApi(data) {
   return $axios({
-    'url': '/abc/login',
+    'url': '/employee/login',
+    // 'url': '/aa',
     'method': 'post',
     data
   })

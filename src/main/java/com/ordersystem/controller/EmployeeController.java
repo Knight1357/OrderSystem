@@ -17,6 +17,9 @@ public class EmployeeController {
     //需要什么在参数列表中声明
     @PostMapping("/employee/login")
     public Result login(@RequestBody Employee employee, HttpSession session){
+
+        System.out.println("==============login=============");
+
         //登录逻辑
         //0.先对用户密码进行加密，得到密文密码
         String password=DigestUtils.md5DigestAsHex(employee.getPassword().getBytes());
