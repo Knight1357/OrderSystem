@@ -24,4 +24,12 @@
         update_time=#{updateTime},update_user=#{updateUser}
         where id=#{id}
     </update>
+    <!--通过id删除种类-->
+    <delete id="deleteById">
+        delete category from category where id=#{id}
+    </delete>
+    <!--通过类型查询种类列表-->
+    <select id="selectByType" resultType="com.ordersystem.pojo.Category">
+        select * from category where type=#{type}
+    </select>
 </mapper>

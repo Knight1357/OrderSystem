@@ -18,4 +18,8 @@ public interface CategoryMapper {
 
     //修改分类
     void update(Category category);
+    //通过id删除
+    void deleteById(Integer id);
+
+    List<Category> selectByType(Integer type);
 }

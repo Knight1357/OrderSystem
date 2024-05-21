@@ -17,6 +17,7 @@ import java.util.List;
 public class CategoryController {
     @Autowired
     private CategoryMapper categoryMapper;
+    // 添加分类
     @PostMapping("/category")
     public Result addCategory(@RequestBody Category category, HttpSession session){
         //调用CategoryMapper方法完成数据库的添加
@@ -33,7 +34,7 @@ public class CategoryController {
         categoryMapper.add(category);
         return Result.success();
     }
-
+    //查询页
     @GetMapping("/category/page")
     public Result selectByPage(Integer page,Integer pageSize){
         //分页查询
@@ -53,7 +54,7 @@ public class CategoryController {
 
         return Result.success(p);
     }
-
+    //更新种类
     @PutMapping("/category")
     public Result updateCategory(@RequestBody Category category,HttpSession session){
         //调用CategoryMapper方法完成数据库的修改
@@ -67,6 +68,25 @@ public class CategoryController {
 
         categoryMapper.update(category);
         return Result.success();
+    }
+
+    //根据id删除分类
+    @DeleteMapping("/category")
+    public Result deleteCategory(Integer id){
+
+
+        categoryMapper.deleteById(id);
+
+        return Result.success();
+    }
+
+    //根据类型获取种类列表
+    @GetMapping("/category/list")
+    public Result selectCategoryByType(Integer type){
+
+        List<Category> cs=categoryMapper.selectByType(type);
+
+        return Result.success(cs);
     }
     
 }
