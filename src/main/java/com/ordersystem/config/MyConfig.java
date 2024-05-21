@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class MyConfig implements WebMvcConfigurer {
 
     //addInter+回车
-
+    //添加拦截器
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //添加拦截器
