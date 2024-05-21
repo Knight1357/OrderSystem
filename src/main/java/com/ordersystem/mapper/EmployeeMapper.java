@@ -13,5 +13,7 @@ public interface EmployeeMapper {
     Employee selectByUsernameAndPassword(String username, String password);
 
 
-    List<Employee> selectAllEmployees();
+    void selectTotal();
+
+    void selectCurrentData(Integer start, Integer pageSize, String name);
 }

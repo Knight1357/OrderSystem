@@ -52,14 +52,18 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/page")
-    public Result getEmployeesPage(Integer page,Integer pageSize,String name){
+    public Result selectByPage(Integer page,Integer pageSize,String name){
 
-
-        List<Employee> employeeList= employeeMapper.selectAllEmployees();
-
+        //1.new 一个Page
         Page<Employee> p=new Page<>();
-        p.setRecords(employeeList);
-//        p.setTotal();
-        return Result.success(p);
+
+        //2.查询Employee表的total
+        employeeMapper.selectTotal();
+
+        //3. 查询当前页数据
+        Integer start=(page-1)*pageSize;
+        employeeMapper.selectCurrentData(start,pageSize,name);
+
+        return Result.success();
     }
 }
