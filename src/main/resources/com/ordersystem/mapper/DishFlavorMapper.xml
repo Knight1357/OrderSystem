@@ -12,4 +12,21 @@
                #{createTime},#{updateTime},
                #{createUser},#{updateUser})
     </insert>
+    <!--通过id查询口味-->
+    <select id="selectById" resultType="com.ordersystem.pojo.DishFlavor">
+        select *
+        from dish_flavor where dish_id=#{id};
+    </select>
+    <!--修改菜品口味-->
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+        update dish
+        where id=#{dishId}
+        <set>
+            name=#{name},
+            value=#{value},
+            update_time=#{updateTime},
+            update_user=#{updateUser}
+        </set>
+    </update>
+    
 </mapper>

@@ -54,9 +54,6 @@ public class DishController {
 
             dishFlavorMapper.add(flavor);
         }
-
-
-
         return Result.success();
     }
 
@@ -80,33 +77,85 @@ public class DishController {
 
 
     //批量停售和启售
-    public Result updateStatusBatchById(){
+    @PostMapping("/dish/status/{status}")
+    public Result updateStatusBatchById(@PathVariable Integer status,Integer[] ids,HttpSession session){
+        Dish dish=new Dish();
+        Integer id=(Integer) session.getAttribute("id");
+        //批量更新
+        for (Integer dishId : ids) {
+            //补充数据
+            dish.setStatus(status);
+            dish.setId(dishId);
+            dish.setUpdateTime(LocalDateTime.now());
+            dish.setUpdateUser(id);
+            //更新数据
+            dishMapper.updateStatus(dish);
+        }
 
-        return null;
+        return Result.success();
     }
 
 
     //批量删除菜品
-    public Result deleteDishBatchById(){
+    @DeleteMapping("/dish")
+    public Result deleteDishBatchById(Integer[] ids){
 
-        return null;
+        for (Integer id : ids) {
+            //通过id删除
+            dishMapper.deleteById(id);
+        }
+
+        return Result.success();
     }
 
     //根据id查询菜品信息
-
-    public Result selectDishById(){
-
-        return null;
+    @GetMapping("/dish/{id}")
+    public Result selectDishById(@PathVariable Integer id){
+        //查询菜品
+        DishDto dishDto= dishMapper.selectById(id);
+        //查询口味
+        List<DishFlavor> ds=  dishFlavorMapper.selectById(id);
+        dishDto.setFlavors(ds);
+        return Result.success(dishDto);
     }
 
 
     //更新菜品
-    public Result updateDish(){
+    @PutMapping("/dish")
+    public Result updateDish(@RequestBody DishDto dishDto, HttpSession session){
 
-        return null;
+        Integer id = (Integer) session.getAttribute("id");
+
+        //1. 把菜品相关的数据添加到dish表中
+        //创建时间更新时间
+        dishDto.setUpdateTime(LocalDateTime.now());
+        //修改人创建人
+        dishDto.setUpdateUser(id);
+        dishMapper.update(dishDto);
+        //将来我们写sql的时候，可以通过一些配置
+        //将Mybatis吧数据库自动生成的id复制给 disDto的id
+
+        //2. 把口味相关的数据添加到dish_flavor表中
+        for (DishFlavor flavor : dishDto.getFlavors()) {
+            //添加菜品id
+            flavor.setDishId(dishDto.getId());
+            //创建时间更新时间
+            flavor.setUpdateTime(LocalDateTime.now());
+            //修改人创建人
+            flavor.setUpdateUser(id);
+
+            dishFlavorMapper.update(flavor);
+        }
+
+        return Result.success();
     }
 
     //根据分类id查询菜品
+    @GetMapping("/dish/list")
+    public Result selectByType(Integer categoryId){
 
+        List<Dish> ds=dishMapper.selectByType(categoryId);
 
+        return Result.success(ds);
+    }
 }

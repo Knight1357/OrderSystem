@@ -29,4 +29,41 @@
                #{description},#{createTime},#{updateTime},
                #{createUser},#{updateUser})
     </insert>
+    <!--更新状态-->
+    <update id="updateStatus">
+        update dish
+        set status=#{status},update_time=#{updateTime},
+            update_user=#{updateUser}
+        where id=#{id}
+    </update>
+    <!--通过id删除-->
+    <update id="deleteById">
+        update dish
+        set is_deleted=1
+        where id=#{id}
+    </update>
+    <!--通过id查询菜品-->
+    <select id="selectById" resultType="com.ordersystem.pojo.dto.DishDto">
+        select * from dish where id=#{id};
+    </select>
+    <!--修改菜品-->
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+        update dish
+        where id=#{id}
+        <set>
+            name=#{name},
+            price=#{price},
+            code=#{code},
+            image=#{image},
+            description=#{description},
+            category_id=#{categoryId},
+            <if test="sort!=null">
+                sort=#{sort}
+            </if>
+        </set>
+    </update>
+    <!--根据种类id进行查询-->
+    <select id="selectByType" resultType="com.ordersystem.pojo.Dish">
+        select * from dish where category_id=#{categoryId}
+    </select>
 </mapper>
