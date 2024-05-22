@@ -9,7 +9,8 @@ import java.util.List;
 @Mapper
 public interface DishFlavorMapper {
 
+    //添加最喜欢的口味
+    void add(DishFlavor flavor);
 
-    //添加最喜欢菜品
-    void addDishFlavors(List<DishFlavor> flavors);
+
 }

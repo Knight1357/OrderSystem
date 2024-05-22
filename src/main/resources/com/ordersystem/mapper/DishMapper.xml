@@ -16,13 +16,17 @@
         limit #{start},#{pageSize}
     </select>
     <!--添加菜品-->
-    <insert id="addDish">
+    <!--
+        useGenerateKey: ture 告诉Mybatis，我需要用数据库自动生成的主键
+        keyProperty：Mapper接口中实体参数的成员变量，告诉MyBatis，把自动生成的主键赋值给哪个成员变量
+    -->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
         insert into
             dish(name, category_id, price, code, image,
-            description,status, create_time, update_time,
+            description,create_time, update_time,
             create_user, update_user)
         values(#{name},#{categoryId},#{price},#{code},#{image},
-               #{description},#{status},#{createTime},#{updateTime},
+               #{description},#{createTime},#{updateTime},
                #{createUser},#{updateUser})
     </insert>
 </mapper>
