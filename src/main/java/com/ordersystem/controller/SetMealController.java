@@ -24,11 +24,11 @@ public class SetMealController {
 
     //添加套餐
     @PostMapping("/setmeal")
-    public Result addSetMeal(@RequestBody SetMealDto setMealDto, HttpSession session){
+    public Result addSetMeal(@RequestBody SetMealDto setMealDto, HttpSession session) {
 
         Integer id = (Integer) session.getAttribute("id");
 
-        //1. 把菜品相关的数据添加到dish表中
+        //1. 把套餐相关的数据添加到dish表中
         //创建时间更新时间
         setMealDto.setCreateTime(LocalDateTime.now());
         setMealDto.setUpdateTime(LocalDateTime.now());
@@ -41,8 +41,8 @@ public class SetMealController {
 
         //2. 把口味相关的数据添加到dish_flavor表中
         for (SetMealDish setMealDish : setMealDto.getSetmealDishes()) {
-            //添加菜品id
-            setMealDish.setDishId(setMealDto.getId());
+            //添加套餐id
+            setMealDish.setSetmealId(setMealDto.getId());
             //创建时间更新时间
             setMealDish.setCreateTime(LocalDateTime.now());
             setMealDish.setUpdateTime(LocalDateTime.now());
@@ -56,19 +56,19 @@ public class SetMealController {
 
     }
 
-    //查询菜品页
+    //查询套餐页
     @GetMapping("/setmeal/page")
-    public Result selectByPage(Integer page,Integer pageSize,String name){
+    public Result selectByPage(Integer page, Integer pageSize, String name) {
         //1. 新建页
-        Page p=new Page<>();
+        Page p = new Page<>();
 
         //2. 查询总数
-        Long total=setMealMapper.selectTotal();
+        Long total = setMealMapper.selectTotal();
         p.setTotal(total);
 
         //3. 查询页内容
-        Integer start=(page-1)*pageSize;
-        List<Dish> ds=setMealMapper.selectCurrentData(start,pageSize,name);
+        Integer start = (page - 1) * pageSize;
+        List<Dish> ds = setMealMapper.selectCurrentData(start, pageSize, name);
         p.setRecords(ds);
 
         return Result.success(p);
@@ -76,14 +76,14 @@ public class SetMealController {
 
     //批量停售和启售
     @PostMapping("/setmeal/status/{status}")
-    public Result updateStatusBatchById(@PathVariable Integer status,Integer[] ids,HttpSession session){
-        SetMeal setMeal=new SetMeal();
-        Integer id=(Integer) session.getAttribute("id");
+    public Result updateStatusBatchById(@PathVariable Integer status, Integer[] ids, HttpSession session) {
+        SetMeal setMeal = new SetMeal();
+        Integer id = (Integer) session.getAttribute("id");
         //批量更新
-        for (Integer dishId : ids) {
+        for (Integer setMealId : ids) {
             //补充数据
             setMeal.setStatus(status);
-            setMeal.setId(dishId);
+            setMeal.setId(setMealId);
             setMeal.setUpdateTime(LocalDateTime.now());
             setMeal.setUpdateUser(id);
             //更新数据
@@ -93,10 +93,9 @@ public class SetMealController {
         return Result.success();
     }
 
-
-    //批量删除菜品
+    //批量删除套餐
     @DeleteMapping("/setmeal")
-    public Result deleteDishBatchById(Integer[] ids){
+    public Result deleteDishBatchById(Integer[] ids) {
 
         for (Integer id : ids) {
             //通过id删除
@@ -106,24 +105,22 @@ public class SetMealController {
         return Result.success();
     }
 
-    //根据id查询菜品信息
+    //根据id查询套餐信息
     @GetMapping("/setmeal/{id}")
-    public Result selectDishById(@PathVariable Integer id){
+    public Result selectDishById(@PathVariable Integer id) {
+        //查询套餐
+        SetMealDto setMealDto = setMealMapper.selectById(id);
         //查询菜品
-        SetMealDto setMealDto= setMealMapper.selectById(id);
-        //查询口味
-        List<SetMealDish> ds=  setMealDishesMapper.selectById(id);
+        List<SetMealDish> ds = setMealDishesMapper.selectById(id);
         setMealDto.setSetmealDishes(ds);
         return Result.success(setMealDto);
     }
 
-
-    //更新菜品
+    //更新套餐
     @PutMapping("/dish")
-    public Result updateDish(@RequestBody SetMealDto setMealDto, HttpSession session){
+    public Result updateDish(@RequestBody SetMealDto setMealDto, HttpSession session) {
 
         Integer id = (Integer) session.getAttribute("id");
-
         //1. 把菜品相关的数据添加到dish表中
         //创建时间更新时间
         setMealDto.setUpdateTime(LocalDateTime.now());
@@ -131,12 +128,12 @@ public class SetMealController {
         setMealDto.setUpdateUser(id);
         setMealMapper.update(setMealDto);
         //将来我们写sql的时候，可以通过一些配置
-        //将Mybatis吧数据库自动生成的id复制给 disDto的id
+        //将Mybatis吧数据库自动生成的id复制给 setMealDto的id
 
-        //2. 把口味相关的数据添加到dish_flavor表中
+        //2. 把菜品相关的数据添加到dish_flavor表中
         for (SetMealDish setMealDish : setMealDto.getSetmealDishes()) {
-            //添加菜品id
-            setMealDish.setDishId(setMealDish.getId());
+            //添加套餐id
+            setMealDish.setSetmealId(setMealDto.getId());
             //创建时间更新时间
             setMealDish.setUpdateTime(LocalDateTime.now());
             //修改人创建人
@@ -148,5 +145,5 @@ public class SetMealController {
         return Result.success();
     }
 
-   
+
 }

@@ -3,6 +3,57 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ordersystem.mapper.SetMealMapper">
+    <!--添加套餐-->
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into
+            setmeal(name, category_id, price, code, image,
+                 description,status,create_time, update_time,
+                 create_user, update_user)
+        values(#{name},#{categoryId},#{price},#{code},#{image},
+               #{description},#{status},#{createTime},#{updateTime},
+               #{createUser},#{updateUser})
+    </insert>
+    <!--查询套餐总数-->
+    <select id="selectTotal" resultType="java.lang.Long">
+        select count(*) from setmeal
+    </select>
+    <!--查询页内容-->
+    <select id="selectCurrentData" resultType="com.ordersystem.pojo.Dish">
+        select * from setmeal
+        <if test="name!=null">
+            where name=#{name}
+        </if>
+        limit #{start},#{pageSize}
+    </select>
+    <!--更新状态-->
+    <update id="updateStatus">
+        update setmeal
+        set status=#{status},update_time=#{updateTime},
+            update_user=#{updateUser}
+        where id=#{id}
+    </update>
+    <!--通过id删除-->
+    <update id="deleteById">
+        delete from setmeal where id=#{id}
+    </update>
+    <!--通过id查询套餐-->
+    <select id="selectById" resultType="com.ordersystem.pojo.dto.SetMealDto">
+        select * from setmeal where id=#{id};
+    </select>
+    <!--修改套餐-->
+    <update id="update" useGeneratedKeys="true" keyProperty="id">
+        update setmeal
+        where id=#{id}
+        <set>
+            category_id=#{categoryId},
+            name=#{name},
+            price=#{price},
+            status=#{status},
+            code=#{code},
+            description=#{description},
+            image=#{image},
+        </set>
+    </update>
 
     
 </mapper>
