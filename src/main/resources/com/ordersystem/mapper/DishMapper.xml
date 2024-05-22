@@ -38,9 +38,7 @@
     </update>
     <!--通过id删除-->
     <update id="deleteById">
-        update dish
-        set is_deleted=1
-        where id=#{id}
+        delete from dish where id=#{id}
     </update>
     <!--通过id查询菜品-->
     <select id="selectById" resultType="com.ordersystem.pojo.dto.DishDto">
