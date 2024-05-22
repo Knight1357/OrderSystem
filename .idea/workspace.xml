@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/pojo/DishAdd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +105,7 @@
       <workItem from="1716253391879" duration="9521000" />
       <workItem from="1716271387338" duration="11139000" />
       <workItem from="1716288345446" duration="8919000" />
-      <workItem from="1716339575144" duration="4666000" />
+      <workItem from="1716339575144" duration="5806000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -283,7 +275,47 @@
       <option name="project" value="LOCAL" />
       <updated>1716297017618</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="add dishAdd">
+      <option name="closed" value="true" />
+      <created>1716344365108</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1716344365108</updated>
+    </task>
+    <task id="LOCAL-00023" summary="add fileUpload">
+      <option name="closed" value="true" />
+      <created>1716344378840</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1716344378840</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add dishAdd">
+      <option name="closed" value="true" />
+      <created>1716344388207</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1716344388207</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add categoryList">
+      <option name="closed" value="true" />
+      <created>1716344406411</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1716344406411</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update">
+      <option name="closed" value="true" />
+      <created>1716344411789</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1716344411789</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,6 +340,9 @@
     <MESSAGE value="add order.sql" />
     <MESSAGE value="update category" />
     <MESSAGE value="delete" />
+    <MESSAGE value="add fileUpload" />
+    <MESSAGE value="add dishAdd" />
+    <MESSAGE value="add categoryList" />
     <MESSAGE value="update" />
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
