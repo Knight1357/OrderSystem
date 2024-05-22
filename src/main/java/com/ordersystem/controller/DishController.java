@@ -1,13 +1,17 @@
 package com.ordersystem.controller;
 
 
+import com.ordersystem.mapper.DishFlavorMapper;
 import com.ordersystem.mapper.DishMapper;
 import com.ordersystem.pojo.Dish;
+import com.ordersystem.pojo.DishAdd;
 import com.ordersystem.pojo.Page;
 import com.ordersystem.pojo.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -15,11 +19,22 @@ public class DishController {
 
     @Autowired
     private DishMapper dishMapper;
+    private DishFlavorMapper dishFlavorMapper;
     //添加菜品
     @PostMapping("/dish")
-    public Result addDish(@RequestBody Dish dish){
+    public Result addDish(@RequestBody DishAdd dishAdd, HttpSession session){
+        // 1.补充信息
+        Dish dish=dishAdd.getDish();
+        //创建时间更新时间
+        dish.setCreateTime(LocalDateTime.now());
+        dish.setUpdateTime(LocalDateTime.now());
+        //修改人创建人
+        Integer id = (Integer) session.getAttribute("id");
+        dish.setUpdateUser(id);
+        dish.setCreateUser(id);
 
-
+        dishMapper.addDish(dish);
+        dishFlavorMapper.addDishFlavors(dishAdd.getFlavors());
 
         return Result.success();
     }

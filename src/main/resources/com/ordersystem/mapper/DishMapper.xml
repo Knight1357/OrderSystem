@@ -15,4 +15,14 @@
         </if>
         limit #{start},#{pageSize}
     </select>
+    <!--添加菜品-->
+    <insert id="addDish">
+        insert into
+            dish(name, category_id, price, code, image,
+            description,status, create_time, update_time,
+            create_user, update_user)
+        values(#{name},#{categoryId},#{price},#{code},#{image},
+               #{description},#{status},#{createTime},#{updateTime},
+               #{createUser},#{updateUser})
+    </insert>
 </mapper>
