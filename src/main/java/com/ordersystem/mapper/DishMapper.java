@@ -8,9 +8,16 @@ import java.util.List;
 
 @Mapper
 public interface DishMapper {
+
+
+
     //查询页总数
     Long selectTotal();
 
     //查询页内容
     List<Dish> selectCurrentData(Integer start, Integer pageSize, String name);
+
+
+    //添加菜品
+    void addDish(Dish dish);
 }
