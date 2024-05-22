@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="add Dishadd">
+    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="add DishSelect">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/pojo/dto/SetMealDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/SetMealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/SetMealController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealDishesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealDishesMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +109,7 @@
       <workItem from="1716271387338" duration="11139000" />
       <workItem from="1716288345446" duration="8919000" />
       <workItem from="1716339575144" duration="11247000" />
-      <workItem from="1716357403935" duration="6317000" />
+      <workItem from="1716357403935" duration="7678000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -352,7 +351,23 @@
       <option name="project" value="LOCAL" />
       <updated>1716350597651</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="add DishSelect">
+      <option name="closed" value="true" />
+      <created>1716367537556</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1716367537556</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add DishSelect">
+      <option name="closed" value="true" />
+      <created>1716367818191</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1716367818191</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,6 +397,7 @@
     <MESSAGE value="add categoryList" />
     <MESSAGE value="update" />
     <MESSAGE value="add Dishadd" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Dishadd" />
+    <MESSAGE value="add DishSelect" />
+    <option name="LAST_COMMIT_MESSAGE" value="add DishSelect" />
   </component>
 </project>
