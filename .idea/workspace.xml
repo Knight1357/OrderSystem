@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="add SetMealController">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="bf6e97f8-6082-4602-a6ad-0f0563d29863" name="Changes" comment="update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/EmployeeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/SetMealController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/controller/SetMealController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/DishFlavorMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealDishesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ordersystem/mapper/SetMealDishesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishFlavorMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/DishMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/SetMealDishesMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/SetMealDishesMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/SetMealMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ordersystem/mapper/SetMealMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +109,7 @@
       <workItem from="1716339575144" duration="11247000" />
       <workItem from="1716357403935" duration="8220000" />
       <workItem from="1716372488629" duration="4392000" />
-      <workItem from="1716425883338" duration="9579000" />
+      <workItem from="1716425883338" duration="13130000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -399,7 +391,47 @@
       <option name="project" value="LOCAL" />
       <updated>1716425987531</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix dishUpdateBug">
+      <option name="closed" value="true" />
+      <created>1716436979209</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1716436979209</updated>
+    </task>
+    <task id="LOCAL-00037" summary="fix dishUpdateBug">
+      <option name="closed" value="true" />
+      <created>1716437011047</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1716437011047</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix setmealUpdateBug">
+      <option name="closed" value="true" />
+      <created>1716437025152</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1716437025152</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fixed employeeUpdateBug">
+      <option name="closed" value="true" />
+      <created>1716437049875</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1716437049875</updated>
+    </task>
+    <task id="LOCAL-00040" summary="update">
+      <option name="closed" value="true" />
+      <created>1716437053862</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1716437053862</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -427,10 +459,13 @@
     <MESSAGE value="add fileUpload" />
     <MESSAGE value="add dishAdd" />
     <MESSAGE value="add categoryList" />
-    <MESSAGE value="update" />
     <MESSAGE value="add Dishadd" />
     <MESSAGE value="add DishSelect" />
     <MESSAGE value="add SetMealController" />
-    <option name="LAST_COMMIT_MESSAGE" value="add SetMealController" />
+    <MESSAGE value="fix dishUpdateBug" />
+    <MESSAGE value="fix setmealUpdateBug" />
+    <MESSAGE value="fixed employeeUpdateBug" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>

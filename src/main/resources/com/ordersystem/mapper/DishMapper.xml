@@ -55,7 +55,7 @@
             description=#{description},
             category_id=#{categoryId},
             update_time=#{updateTime},
-            update_user=#{updateUser}
+            update_user=#{updateUser},
             <if test="sort!=null">
                 sort=#{sort}
             </if>

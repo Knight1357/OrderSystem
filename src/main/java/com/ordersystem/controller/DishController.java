@@ -136,7 +136,8 @@ public class DishController {
         //修改人创建人
         dishDto.setUpdateUser(id);
 
-
+        //删除口味
+        dishFlavorMapper.deleteById(dishDto.getId());
         dishMapper.update(dishDto);
         //将来我们写sql的时候，可以通过一些配置
         //将Mybatis吧数据库自动生成的id复制给 disDto的id
