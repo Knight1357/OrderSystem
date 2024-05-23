@@ -10,6 +10,8 @@ public interface SetMealDishesMapper {
     void add(SetMealDish setMealDish);
     //根据id查询套餐菜品
     List<SetMealDish> selectById(Integer id);
-
+    //更新套餐内的菜品
     void update(SetMealDish setMealDish);
+   // 通过id删除套餐菜品
+    void deleteById(Integer id);
 }

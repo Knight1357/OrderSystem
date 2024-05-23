@@ -76,7 +76,7 @@ public class SetMealController {
 
     //批量停售和启售
     @PostMapping("/setmeal/status/{status}")
-    public Result updateStatusBatchById(@PathVariable Integer status, Integer[] ids, HttpSession session) {
+    public Result updateStatusBatchById(@PathVariable("status") Integer status, Integer[] ids, HttpSession session) {
         SetMeal setMeal = new SetMeal();
         Integer id = (Integer) session.getAttribute("id");
         //批量更新
@@ -98,7 +98,9 @@ public class SetMealController {
     public Result deleteDishBatchById(Integer[] ids) {
 
         for (Integer id : ids) {
-            //通过id删除
+            //通过id删除套餐菜品
+            setMealDishesMapper.deleteById(id);
+            //再通过id删除套餐
             setMealMapper.deleteById(id);
         }
 
@@ -107,12 +109,14 @@ public class SetMealController {
 
     //根据id查询套餐信息
     @GetMapping("/setmeal/{id}")
-    public Result selectDishById(@PathVariable Integer id) {
+    public Result selectDishById(@PathVariable("id") Integer id) {
         //查询套餐
         SetMealDto setMealDto = setMealMapper.selectById(id);
         //查询菜品
         List<SetMealDish> ds = setMealDishesMapper.selectById(id);
         setMealDto.setSetmealDishes(ds);
+        System.out.println("========================");
+        System.out.println(ds);
         return Result.success(setMealDto);
     }
 
@@ -127,21 +131,29 @@ public class SetMealController {
         //修改人创建人
         setMealDto.setUpdateUser(id);
         setMealMapper.update(setMealDto);
+
+        System.out.println("=================");
+        System.out.println(setMealDto);
+
         //将来我们写sql的时候，可以通过一些配置
         //将Mybatis吧数据库自动生成的id复制给 setMealDto的id
 
+        //先删除所有套餐菜品
+        setMealDishesMapper.deleteById(setMealDto.getId());
         //2. 把菜品相关的数据添加到dish_flavor表中
         for (SetMealDish setMealDish : setMealDto.getSetmealDishes()) {
             //添加套餐id
             setMealDish.setSetmealId(setMealDto.getId());
             //创建时间更新时间
+            setMealDish.setCreateTime(LocalDateTime.now());
             setMealDish.setUpdateTime(LocalDateTime.now());
             //修改人创建人
+            setMealDish.setCreateUser(id);
             setMealDish.setUpdateUser(id);
 
-            setMealDishesMapper.update(setMealDish);
+            //再添加菜品
+            setMealDishesMapper.add(setMealDish);
         }
-
         return Result.success();
     }
 

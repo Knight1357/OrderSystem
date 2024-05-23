@@ -13,9 +13,8 @@
                #{createUser},#{updateUser})
     </insert>
     <!--通过id查询套餐菜品-->
-    <select id="selectById" resultType="com.ordersystem.pojo.DishFlavor">
-        select *
-        from setmeal_dish where setmeal_id=#{id};
+    <select id="selectById" resultType="com.ordersystem.pojo.SetMealDish">
+        select * from setmeal_dish where setmeal_id=#{id};
     </select>
     <!--修改套餐菜品信息-->
     <update id="update" useGeneratedKeys="true" keyProperty="id">
@@ -27,5 +26,9 @@
             update_time=#{updateTime},
             update_user=#{updateUser}
         </set>
+    </update>
+    <!--通过id删除套餐内的菜品-->
+    <update id="deleteById">
+        delete from setmeal_dish where setmeal_id=#{id}
     </update>
 </mapper>

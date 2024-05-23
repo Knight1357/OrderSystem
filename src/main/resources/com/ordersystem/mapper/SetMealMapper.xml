@@ -42,17 +42,17 @@
     </select>
     <!--修改套餐-->
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-        update setmeal
-        where id=#{id}
-        <set>
-            category_id=#{categoryId},
-            name=#{name},
-            price=#{price},
-            status=#{status},
-            code=#{code},
-            description=#{description},
-            image=#{image},
-        </set>
+        update setmeal set
+                category_id=#{categoryId},
+                name=#{name},
+                price=#{price},
+                status=#{status},
+                code=#{code},
+                description=#{description},
+                image=#{image},
+                update_user=#{updateUser},
+                update_time=#{updateTime}
+            where id=#{id}
     </update>
 
     
