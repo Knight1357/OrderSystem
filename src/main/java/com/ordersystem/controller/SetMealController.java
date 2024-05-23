@@ -117,7 +117,7 @@ public class SetMealController {
     }
 
     //更新套餐
-    @PutMapping("/dish")
+    @PutMapping("/setmeal")
     public Result updateDish(@RequestBody SetMealDto setMealDto, HttpSession session) {
 
         Integer id = (Integer) session.getAttribute("id");
