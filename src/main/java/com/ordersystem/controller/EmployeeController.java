@@ -98,7 +98,7 @@ public class EmployeeController {
 
     // 根据ID查询员工
     @GetMapping("/employee/{id}")
-    public Result selectByEmployeeId(@PathVariable Integer id){
+    public Result selectByEmployeeId(@PathVariable("id") Integer id){
 
         Employee employee=employeeMapper.selectById(id);
         if(employee==null){
