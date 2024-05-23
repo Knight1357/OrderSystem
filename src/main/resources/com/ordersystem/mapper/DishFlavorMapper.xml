@@ -19,14 +19,18 @@
     </select>
     <!--修改菜品口味-->
     <update id="update" useGeneratedKeys="true" keyProperty="id">
-        update dish
-        where id=#{dishId}
+        update dish_flavor
         <set>
             name=#{name},
             value=#{value},
             update_time=#{updateTime},
             update_user=#{updateUser}
         </set>
+        where id=#{dishId}
     </update>
+    <!--删除口味-->
+    <delete id="deleteById">
+        delete from dish_flavor where dish_id=#{dishId}
+    </delete>
     
 </mapper>

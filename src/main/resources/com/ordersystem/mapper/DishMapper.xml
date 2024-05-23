@@ -47,7 +47,6 @@
     <!--修改菜品-->
     <update id="update" useGeneratedKeys="true" keyProperty="id">
         update dish
-        where id=#{id}
         <set>
             name=#{name},
             price=#{price},
@@ -55,10 +54,13 @@
             image=#{image},
             description=#{description},
             category_id=#{categoryId},
+            update_time=#{updateTime},
+            update_user=#{updateUser}
             <if test="sort!=null">
                 sort=#{sort}
             </if>
         </set>
+        where id=#{id}
     </update>
     <!--根据种类id进行查询-->
     <select id="selectByType" resultType="com.ordersystem.pojo.Dish">
