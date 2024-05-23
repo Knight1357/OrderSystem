@@ -78,7 +78,7 @@ public class DishController {
 
     //批量停售和启售
     @PostMapping("/dish/status/{status}")
-    public Result updateStatusBatchById(@PathVariable Integer status,Integer[] ids,HttpSession session){
+    public Result updateStatusBatchById(@PathVariable("status") Integer status,Integer[] ids,HttpSession session){
         Dish dish=new Dish();
         Integer id=(Integer) session.getAttribute("id");
         //批量更新
@@ -103,6 +103,7 @@ public class DishController {
         for (Integer id : ids) {
             //通过id删除
             dishMapper.deleteById(id);
+            dishFlavorMapper.deleteById(id);
         }
 
         return Result.success();
@@ -110,7 +111,7 @@ public class DishController {
 
     //根据id查询菜品信息
     @GetMapping("/dish/{id}")
-    public Result selectDishById(@PathVariable Integer id){
+    public Result selectDishById(@PathVariable("id") Integer id){
         //查询菜品
         DishDto dishDto= dishMapper.selectById(id);
         //查询口味
@@ -124,6 +125,9 @@ public class DishController {
     @PutMapping("/dish")
     public Result updateDish(@RequestBody DishDto dishDto, HttpSession session){
 
+        System.out.println("================");
+        System.out.println(dishDto);
+
         Integer id = (Integer) session.getAttribute("id");
 
         //1. 把菜品相关的数据添加到dish表中
@@ -131,20 +135,30 @@ public class DishController {
         dishDto.setUpdateTime(LocalDateTime.now());
         //修改人创建人
         dishDto.setUpdateUser(id);
+
+
         dishMapper.update(dishDto);
         //将来我们写sql的时候，可以通过一些配置
         //将Mybatis吧数据库自动生成的id复制给 disDto的id
+
+        System.out.println("==========");
+        System.out.println(dishDto.getId());
+        //先删除所以菜单口味
+        dishFlavorMapper.deleteById(dishDto.getId());
 
         //2. 把口味相关的数据添加到dish_flavor表中
         for (DishFlavor flavor : dishDto.getFlavors()) {
             //添加菜品id
             flavor.setDishId(dishDto.getId());
             //创建时间更新时间
+            flavor.setCreateTime(LocalDateTime.now());
             flavor.setUpdateTime(LocalDateTime.now());
             //修改人创建人
             flavor.setUpdateUser(id);
+            flavor.setCreateUser(id);
 
-            dishFlavorMapper.update(flavor);
+            //更新口味，先删除所有口味再添加口味即可
+            dishFlavorMapper.add(flavor);
         }
 
         return Result.success();

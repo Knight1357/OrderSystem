@@ -16,4 +16,6 @@ public interface DishFlavorMapper {
     List<DishFlavor> selectById(Integer id);
     //更新菜品口味
     void update(DishFlavor flavor);
+    //删除多余口味
+    void deleteById(Integer id);
 }
